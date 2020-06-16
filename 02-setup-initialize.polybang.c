@@ -34,12 +34,12 @@ void *polybang_new(void){
 //It is required to be named [filename]_setup()
 void polybang_setup(void){
     //Initialize the class
-    polybang_class = class_new(gensym("polybang"),
-                               (t_newmethod)polybang_new,
-                               (t_method)polybang_free,
-                               sizeof(t_polybang),
-                               CLASS_DEFAULT,
-                               A_DEFFLOAT, //A of A:B
-                               A_DEFFLOAT, //B of A:B
-                               0);
+    polybang_class = class_new(gensym("polybang"), //the name we'll type in PD for this object
+                               (t_newmethod)polybang_new, // initializer method
+                               (t_method)polybang_free, // free method
+                               sizeof(t_polybang), // how much space this object will take up in mem
+                               CLASS_DEFAULT, //how the object looks visually
+                               A_DEFFLOAT, //A of A:B - first arg 
+                               A_DEFFLOAT, //B of A:B - second arg
+                               0); // 0 denotes end of args
 }
